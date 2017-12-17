@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http,Headers} from '@angular/http';
 import {Post} from './post';
 import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/map';
@@ -16,4 +16,13 @@ export class PostService {
     return this._http.get(this.postsUrl)
         .map(res => res.json());
   }
+
+  getPostResponse() {
+    var header = new Headers();
+    header.append('Content-type', 'application/json');
+    let body = {"request":{"UserName":"9999988888","Password":"HYDCOPS@123","ImeiNumber":"869087022855008","DeviceId":"1","lat":"17.4012005","lang":"78.476371","CCTNSloginId":"","CCTNSPwd":""}};
+        return this._http.post('http://220.225.38.123:8081/LogicShore.svc/SingleLogin', JSON.stringify(body), {
+        headers:header
+      }).map(res => res.json()).subscribe(data => {console.log(data)});
+	}
 }

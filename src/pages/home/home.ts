@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from './postservice';
-
+import {Post} from './post';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -20,7 +20,7 @@ export class HomePage implements OnInit{
 
      });
 
-
+this._postService.getPostResponse();
 }
 
 }
