@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http,Headers} from '@angular/http';
+import {Http,Headers,Response} from '@angular/http';
 import {Post} from './post';
 import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/map';
@@ -14,7 +14,7 @@ export class PostService {
 
   getPosts(): Observable<Post[]>{
     return this._http.get(this.postsUrl)
-        .map(res => res.json());
+        .map((response:Response) => <Post[]>response.json().Zoneslist);
   }
 
   getPostResponse() {

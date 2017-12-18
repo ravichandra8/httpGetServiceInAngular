@@ -16,7 +16,7 @@ export class HomePage implements OnInit{
      this._postService.getPosts().subscribe(posts => {
        console.log("test");
        console.log(posts);
-       this.ZonesData=posts.Zoneslist;
+       this.ZonesData=posts;
 
      });
 
